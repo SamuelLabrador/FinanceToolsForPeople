@@ -1,15 +1,13 @@
 package controllers
 
-import akka.actor.ActorSystem
 import javax.inject.Inject
 import models.TickerHistoryQuery
 import play.api.Logger
-import play.api.libs.concurrent.CustomExecutionContext
 import play.api.libs.ws.WSClient
-import play.api.mvc.{BaseController, ControllerComponents}
+import play.api.mvc.{Action, AnyContent, BaseController, ControllerComponents}
 import utilities.FinnhubAPI
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.ExecutionContext
 
 // TODO Implement custom execution context
 //trait TickerControllerExecutionContext extends ExecutionContext
@@ -24,10 +22,9 @@ class TickerController @Inject()( implicit val ws: WSClient,
   val logger: Logger = Logger(this.getClass)
 
 
-  def getTickerHistory(ticker: TickerHistoryQuery) = Action.async { request =>
+  def getTickerHistory(ticker: TickerHistoryQuery): Action[AnyContent] = Action.async {
     val api = new FinnhubAPI()
     val result = api.getCandles(ticker.name, "1", "1572651390", "1572910590")
     result.map(response => Ok(response.toString))
-
   }
 }
