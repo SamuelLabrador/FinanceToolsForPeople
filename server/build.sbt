@@ -1,18 +1,14 @@
-name := """server"""
 organization := "com.ftfp"
+version      := "0.0.1"
+name         := "server"
+scalaVersion := "2.12.6"
 
-version := "1.0-SNAPSHOT"
+enablePlugins(PlayScala)
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
-
-scalaVersion := "2.13.3"
-
-libraryDependencies += guice
-libraryDependencies += ws
-libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
-
-// Adds additional packages into Twirl
-//TwirlKeys.templateImports += "com.ftfp.controllers._"
-
-// Adds additional packages into conf/routes
-// play.sbt.routes.RoutesKeys.routesImport += "com.ftfp.binders._"
+libraryDependencies ++= Seq(
+  guice,
+  ws,
+  "org.webjars" % "swagger-ui" % "3.1.5",
+  "org.scalatest"          %% "scalatest"          % "3.0.4" % Test,
+  "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
+)

@@ -10,21 +10,15 @@ import utilities.FinnhubAPI
 import scala.concurrent.ExecutionContext
 
 // TODO Implement custom execution context
-//trait TickerControllerExecutionContext extends ExecutionContext
-//
-//class TickerControllerExecutionContextImpl @Inject() (system: ActorSystem)
-//  extends CustomExecutionContext(system, "TickerController.executor")
-//  with TickerControllerExecutionContext
 
 class TickerController @Inject()( implicit val ws: WSClient,
                                   implicit val ec: ExecutionContext,
                                   val controllerComponents: ControllerComponents) extends BaseController{
   val logger: Logger = Logger(this.getClass)
 
-
   def getTickerHistory(ticker: TickerHistoryQuery): Action[AnyContent] = Action.async {
     val api = new FinnhubAPI()
-    val result = api.getCandles(ticker.name, "1", "1572651390", "1572910590")
-    result.map(response => Ok(response.toString))
+    val result = api.getCandles(ticker.name, ticker.resolution, ticker.from, ticker.to)
+    result.map(response => Ok(response))
   }
 }

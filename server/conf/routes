@@ -1,12 +1,15 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
-# https://www.playframework.com/documentation/latest/ScalaRouting
 # ~~~~
 
-# An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
+
+# Routes for Data API
+
+GET /data/tickerHistory/:tickerSymbol    controllers.DataApiController.getTickerHistoricalData(tickerSymbol: String)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET /assets/*file           controllers.Assets.at(file)
+GET /versionedAssets/*file  controllers.Assets.versioned(file)
 
-GET     /api/ticker                 controllers.TickerController.getTickerHistory(ticker: models.TickerHistoryQuery)
+# Swagger UI
+GET /api                    controllers.ApiDocController.api

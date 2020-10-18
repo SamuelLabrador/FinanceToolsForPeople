@@ -1,16 +1,16 @@
 package utilities
 
 import Constants.ServerConstants.Environment
-import javax.inject.{Inject, Singleton}
+import javax.inject.Inject
 import play.api.Logger
-import play.api.libs.json.{JsValue, Json}
+import play.api.libs.json.JsValue
 import play.api.libs.ws.WSClient
 
 import scala.concurrent.{ExecutionContext, Future}
 
 class FinnhubAPI @Inject ()(implicit val ws: WSClient,
                           implicit val ec: ExecutionContext) {
-  val logger = Logger(this.getClass)
+  val logger: Logger = Logger(this.getClass)
   val baseUrl = "https://finnhub.io/api/v1/"
 
   def getCandles( symbol: String,
@@ -21,7 +21,7 @@ class FinnhubAPI @Inject ()(implicit val ws: WSClient,
                   adjusted: Option[Boolean] = None
                 ): Future[JsValue] = {
 
-    ws.url(s"${baseUrl}/stock/candle").addQueryStringParameters(
+    ws.url(s"$baseUrl/stock/candle").addQueryStringParameters(
       ("token" -> sys.env(Environment.FinnhubApiKey)),
       ("symbol" -> symbol),
       ("resolution" -> resolution),
