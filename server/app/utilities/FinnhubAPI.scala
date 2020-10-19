@@ -1,6 +1,6 @@
 package utilities
 
-import Constants.ServerConstants.Environment
+import org.ServerConstants.Environment
 import javax.inject.Inject
 import play.api.Logger
 import play.api.libs.json.JsValue

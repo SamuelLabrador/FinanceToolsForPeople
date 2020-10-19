@@ -13,7 +13,7 @@ import scala.concurrent.ExecutionContext
 
 class TickerController @Inject()( implicit val ws: WSClient,
                                   implicit val ec: ExecutionContext,
-                                  val controllerComponents: ControllerComponents) extends BaseController {
+                                  val controllerComponents: ControllerComponents) extends BaseController{
   val logger: Logger = Logger(this.getClass)
 
   def getTickerHistory(ticker: TickerHistoryQuery): Action[AnyContent] = Action.async {

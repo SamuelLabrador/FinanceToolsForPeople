@@ -1,7 +1,9 @@
-package Constants
+package org
 
 object ServerConstants {
-  object Environment{
+
+  object Environment {
     val FinnhubApiKey = "FINNHUB_API_KEY"
   }
+
 }
