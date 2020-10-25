@@ -1,6 +1,6 @@
 /**
  * FTFP API
- * -- Finance tools for people --
+ * Finance tools for people
  *
  * The version of the OpenAPI document: 0.0.1
  * 
@@ -13,12 +13,13 @@
 
 
 import ApiClient from './ApiClient';
+import ModelsTickerHistory from './model/ModelsTickerHistory';
 import ModelsTickerHistoryQuery from './model/ModelsTickerHistoryQuery';
 import DataApi from './api/DataApi';
 
 
 /**
-* ___Finance_tools_for_people___.<br>
+* Finance_tools_for_people.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
@@ -54,6 +55,12 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
+
+    /**
+     * The ModelsTickerHistory model constructor.
+     * @property {module:model/ModelsTickerHistory}
+     */
+    ModelsTickerHistory,
 
     /**
      * The ModelsTickerHistoryQuery model constructor.

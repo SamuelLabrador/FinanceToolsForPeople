@@ -9,6 +9,12 @@ Object.defineProperty(exports, "ApiClient", {
     return _ApiClient["default"];
   }
 });
+Object.defineProperty(exports, "ModelsTickerHistory", {
+  enumerable: true,
+  get: function get() {
+    return _ModelsTickerHistory["default"];
+  }
+});
 Object.defineProperty(exports, "ModelsTickerHistoryQuery", {
   enumerable: true,
   get: function get() {
@@ -23,6 +29,8 @@ Object.defineProperty(exports, "DataApi", {
 });
 
 var _ApiClient = _interopRequireDefault(require("./ApiClient"));
+
+var _ModelsTickerHistory = _interopRequireDefault(require("./model/ModelsTickerHistory"));
 
 var _ModelsTickerHistoryQuery = _interopRequireDefault(require("./model/ModelsTickerHistoryQuery"));
 

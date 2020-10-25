@@ -7,6 +7,8 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
+var _ModelsTickerHistory = _interopRequireDefault(require("../model/ModelsTickerHistory"));
+
 var _ModelsTickerHistoryQuery = _interopRequireDefault(require("../model/ModelsTickerHistoryQuery"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -39,7 +41,7 @@ var DataApi = /*#__PURE__*/function () {
    * Callback function to receive the result of the getTickerHistory operation.
    * @callback module:api/DataApi~getTickerHistoryCallback
    * @param {String} error Error message, if any.
-   * @param data This operation does not return a value.
+   * @param {module:model/ModelsTickerHistory} data The data returned by the service call.
    * @param {String} response The complete HTTP response.
    */
 
@@ -48,6 +50,7 @@ var DataApi = /*#__PURE__*/function () {
    * @param {Object} opts Optional parameters
    * @param {module:model/ModelsTickerHistoryQuery} opts.body 
    * @param {module:api/DataApi~getTickerHistoryCallback} callback The callback function, accepting three arguments: error, data, response
+   * data is of type: {@link module:model/ModelsTickerHistory}
    */
 
 
@@ -62,8 +65,8 @@ var DataApi = /*#__PURE__*/function () {
       var formParams = {};
       var authNames = [];
       var contentTypes = ['application/json'];
-      var accepts = [];
-      var returnType = null;
+      var accepts = ['application/json'];
+      var returnType = _ModelsTickerHistory["default"];
       return this.apiClient.callApi('/data/tickerHistory', 'POST', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null, callback);
     }
   }]);

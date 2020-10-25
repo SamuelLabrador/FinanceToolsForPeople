@@ -1,6 +1,6 @@
 /**
  * FTFP API
- * -- Finance tools for people --
+ * Finance tools for people
  *
  * The version of the OpenAPI document: 0.0.1
  * 
@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import ModelsTickerHistory from '../model/ModelsTickerHistory';
 import ModelsTickerHistoryQuery from '../model/ModelsTickerHistoryQuery';
 
 /**
@@ -38,7 +39,7 @@ export default class DataApi {
      * Callback function to receive the result of the getTickerHistory operation.
      * @callback module:api/DataApi~getTickerHistoryCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/ModelsTickerHistory} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -47,6 +48,7 @@ export default class DataApi {
      * @param {Object} opts Optional parameters
      * @param {module:model/ModelsTickerHistoryQuery} opts.body 
      * @param {module:api/DataApi~getTickerHistoryCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ModelsTickerHistory}
      */
     getTickerHistory(opts, callback) {
       opts = opts || {};
@@ -63,8 +65,8 @@ export default class DataApi {
 
       let authNames = [];
       let contentTypes = ['application/json'];
-      let accepts = [];
-      let returnType = null;
+      let accepts = ['application/json'];
+      let returnType = ModelsTickerHistory;
       return this.apiClient.callApi(
         '/data/tickerHistory', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,

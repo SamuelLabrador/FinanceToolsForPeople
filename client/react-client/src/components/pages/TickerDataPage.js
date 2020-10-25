@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { ModelsTickerHistoryQuery, DataApi } from 'ftfp_api';
+import { ModelsTickerHistoryQuery, ModelsTickerHistory, DataApi } from 'ftfp_api';
 
 class TickerDataPage extends Component {
   constructor(props) {
@@ -23,7 +23,8 @@ class TickerDataPage extends Component {
 
     var api = new DataApi();
     function callback(error, data, response) {
-      console.log(response.body)
+      var history = response.body
+      console.log(history)
     }
     api.getTickerHistory(data, callback)
   }

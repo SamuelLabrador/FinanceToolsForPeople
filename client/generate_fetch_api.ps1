@@ -1,3 +1,9 @@
+# Generate Client Stubs
+openapi-generator-cli.cmd generate `
+    -i ..\server\target\swagger\swagger.json `
+    -g javascript `
+    -o ./fetch-client
+
 Set-Location .\fetch-client
 Write-Output Installing NPM Dependencies
 npm install

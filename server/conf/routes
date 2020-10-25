@@ -17,6 +17,8 @@
  #  responses:
  #    200:
  #      description: success
+ #      schema:
+ #        $ref: '#/definitions/models.TickerHistory'
  ###
 POST    /data/tickerHistory                controllers.TickerController.getTickerHistory()
 

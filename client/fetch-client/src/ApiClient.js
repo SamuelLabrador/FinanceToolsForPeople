@@ -1,6 +1,6 @@
 /**
  * FTFP API
- * -- Finance tools for people --
+ * Finance tools for people
  *
  * The version of the OpenAPI document: 0.0.1
  * 
@@ -465,6 +465,7 @@ class ApiClient {
                 callback(error, data, response);
             }
         });
+
         return request;
     }
 

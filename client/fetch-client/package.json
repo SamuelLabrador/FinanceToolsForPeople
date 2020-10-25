@@ -1,7 +1,7 @@
 {
   "name": "ftfp_api",
   "version": "0.0.1",
-  "description": "___Finance_tools_for_people___",
+  "description": "Finance_tools_for_people",
   "license": "Unlicense",
   "main": "dist/index.js",
   "scripts": {

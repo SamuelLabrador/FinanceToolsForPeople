@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## getTickerHistory
 
-> getTickerHistory(opts)
+> ModelsTickerHistory getTickerHistory(opts)
 
 Get ticker history
 
@@ -27,7 +27,7 @@ apiInstance.getTickerHistory(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**ModelsTickerHistory**](ModelsTickerHistory.md)
 
 ### Authorization
 
@@ -50,5 +50,5 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
