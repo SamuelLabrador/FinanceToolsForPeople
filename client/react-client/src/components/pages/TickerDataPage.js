@@ -7,7 +7,7 @@ class TickerDataPage extends Component {
     
     this.state = {
       symbol: 'AAPL',
-      resolution: '1',
+      resolution: '5',
       from: '1572651390',
       to: '1572910590'
     }
@@ -23,7 +23,7 @@ class TickerDataPage extends Component {
 
     var api = new DataApi();
     function callback(error, data, response) {
-      console.log(response.text)
+      console.log(response.body)
     }
     api.getTickerHistory(data, callback)
   }
